@@ -4,9 +4,7 @@ server:
     accept-count: 1000
     max-threads: 3000
     max-connections: 2000
-# 日志配置
-# logging:
-#  config: classpath:log4j2-dev.xml
+
 spring:
   application:
     name: query
@@ -15,44 +13,6 @@ spring:
     hbase:
       quorum: hadoop1:2181,hadoop2:2181,hadoop3:2181
       rootDir: /hbase
-#    elasticsearch:
-#      clusterName: sinorail
-#      clusterNodes: 192.168.17.68:9300
-#redis配置
-  redis:
-    database: 0
-    host: 192.168.17.68
-    port: 6379
-    password:
-    jedis:
-      pool:
-        max-wait: 1000
-        max-active: 500
-        max-idle: 300
-  kafka:
-    bootstrap-servers: hadoop4:9092,hadoop5:9092,hadoop6:9092
-    producer:
-      retries: 1
-      acks: all
-      # 每次批量发送消息的数量
-      batch-size: 50
-      # 缓存容量
-      buffer-memory: 33554432
-      # 指定消息key和消息体的编解码方式
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    consumer:
-      # 指定默认消费者group id
-      group-id: consumer-tutorial
-      auto-commit-interval: 100
-      auto-offset-reset: earliest
-      enable-auto-commit: true
-      # 指定消息key和消息体的编解码方式
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-     # 指定listener 容器中的线程数，用于提高并发量
-    listener:
-      concurrency: 3
 
 logging:
   file:
